@@ -1,0 +1,45 @@
+{
+    "academics": {
+        "content": [
+            "I am a highly motivated and high-performing USC student graduating in May 2021 with both a MS in Computer Science and a BS in Computer Science/Business Administration earned jointly in 4 years with high honors. ",
+            "I just finished my junior year at USC, and I'll be graduating next May with both an MS in Computer Science and a BS in Computer Science/Business Administration. "
+        ],
+        "linkedin": 0,
+        "microsoft": 1,
+        "general": 1
+    },
+    "professional": {
+        "content": [
+            "This summer I'll be a Software Engineering Intern at microsoft. Previously, I interned at start-ups during the summer of 2019 and 2018. ",
+            "This summer I'll be a Software Engineering Intern under xxxx on the Azure Storage, Media, and Edge team. Previously, I interned at start-ups during the summer of 2019 and 2018. "
+        ],
+        "linkedin": 0,
+        "general": 0,
+        "microsoft": 1
+    },
+    "personal": {
+        "content": [
+            "I love mountain biking, SCUBA diving, and I'm an ice hockey goalie. I'm also an avid piano player and music lover. "
+        ],
+        "linkedin": 0,
+        "general": 0,
+        "microsoft": 0
+    },
+    "purpose": {
+        "content": [
+            "I'm looking to build strong connections, learn as much as I can, and make an impact on my team this summer! ",
+            "I'm looking to build connections, learn as much as I can, and make a meaningful impact wherever I go. "
+        ],
+        "microsoft": 0,
+        "linkedin": 1
+    },
+    "links": {
+        "content": {
+            "github": "https://github.com/cbpodd",
+            "linkedin": "htpps://github.com/cbpodd"
+        },
+        "general": [ "github", "linkedin" ],
+        "microsoft": [ "github", "linkedin" ],
+        "linkedin": [ "github" ]
+    }
+}

@@ -1,0 +1,26 @@
+# Social Media
+
+## General
+
+- Facebook
+- Fitbit
+- Github
+- Lyft
+- Reddit
+- Slack
+    - Lavalab
+    - Connect with Google
+- Strava
+- TikTok
+- Twitter
+- Venmo
+
+## LinkedIn
+
+- LinkedIn
+
+## Microsoft
+
+- Slack
+    - Microsoft Interns 2020
+
