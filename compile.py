@@ -1,76 +1,54 @@
 #!/usr/bin/env python3
 
-import sys
 import json
+import sys
 import os
-from pathlib import Path
 
-WINDOWS = 'windows'
-LINUX = 'linux'
-MACOS = 'macos'
-UNIX = 'unix'
-FILES_DIR = 'files'
-CONFIG_DIR = 'config'
-HOME = str(Path.home())
-CWD = os.getcwd()
+ACADEMICS = 'academics'
+PROFESSIONAL = 'professional'
+PERSONAL = 'personal'
+PURPOSE = 'purpose'
+LINKS = 'links'
+TYPES = [ ACADEMICS, PROFESSIONAL, PERSONAL, PURPOSE ]
+
+MICROSOFT = 'microsoft'
+LINKEDIN = 'linkedin'
+GENERAL = 'general'
+OUTPUTS = { MICROSOFT, LINKEDIN, GENERAL }
+
+CONTENT = 'content'
+
+IN_DIR = 'data'
+OUT_DIR = 'build'
+
+SRC_FILE = 'intros.json'
+OUT_TYPE = '.md'
 
 def main():
-    with open('intros.json') as f:
+    with open(os.path.join(IN_DIR, SRC_FILE)) as f:
         data = json.load(f)
-        os_type = sys.platform
-        platform_name = ''
-        fs_type = UNIX
-        if os_type.startswith('darwin'):
-            platform_name = MACOS
-        elif os_type.startswith('win32'):
-            platform_name = WINDOWS
-        elif os_type.startswith('linux'):
-            platform_name = LINUX
 
-        if platform_name == WINDOWS:
-            fs_type = WINDOWS
+        output = dict()
+        for name in OUTPUTS:
+            output[name] = ''
 
-        files = data['files']['shared'] + data['files'][platform_name]
-        folders = data['folders']['shared'] + data['folders'][platform_name]
-        config = data['config']['shared'] + data['config'][platform_name]
+        for t in TYPES:
+            part = data[t]
+            content = data[t][CONTENT]
+            for name in OUTPUTS:
+                if name in part:
+                    i = part[name]
+                    content = part[CONTENT][i]
+                    output[name] += content
 
-        if fs_type == UNIX:
-            return unix(files, folders, config)
+        if not os.path.exists(OUT_DIR):
+            os.makedirs(OUT_DIR)
 
-        return windows(files, folders, config)
-
-def unix(files, folders, config):
-    hiddenConfig = hidden(CONFIG_DIR, UNIX)
-    for f in files:
-        fullPath = os.path.join(CWD, FILES_DIR, f)
-        hf = hidden(f, UNIX)
-        homePath = os.path.join(HOME, hf)
-        if os.path.isfile(fullPath) and not os.path.isfile(homePath):
-            os.symlink(fullPath, homePath)
-    for folder in folders:
-        fullPath = os.path.join(CWD, folder)
-        hf = hidden(folder, UNIX)
-        homePath = os.path.join(HOME, hf)
-        if os.path.isdir(fullPath) and not os.path.isdir(homePath):
-            os.symlink(fullPath, homePath)
-    configPath = os.path.join(HOME, hiddenConfig)
-    if not os.path.isdir(configPath):
-        os.makedirs(configPath)
-    for c in config:
-        fullPath = os.path.join(CWD, CONFIG_DIR, c)
-        homePath = os.path.join(configPath, c)
-        if os.path.exists(fullPath) and not os.path.exists(homePath):
-            os.symlink(fullPath, homePath)
-    return 0
-
-def windows(files, folders, config):
-    return 1
-
-def hidden(f, fs_type):
-    if fs_type == UNIX:
-        return "." + f
-
-    return "_" + f
+        for out in output:
+            with open(os.path.join(OUT_DIR, (out + OUT_TYPE)), 'w') as out_file:
+                lines = [ '# ', out.title(), '\n\n', output[out] ]
+                out_file.writelines(lines)
+        return 0
 
 if __name__ == "__main__":
     exit_code = main()
