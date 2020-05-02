@@ -1,3 +1,3 @@
-# Intros
+# Social Media
 
-All of my intros/bios for social media & others
+All of my headlines, profile pictures, and bios for social media
