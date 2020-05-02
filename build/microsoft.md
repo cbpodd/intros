@@ -1,3 +1,0 @@
-# Microsoft
-
-I just finished my junior year at USC, and I'll be graduating next May with both an MS in Computer Science and a BS in Computer Science/Business Administration. This summer I'll be a Software Engineering Intern under xxxx on the Azure Storage, Media, and Edge team. Previously, I interned at start-ups during the summer of 2019 and 2018. I love mountain biking, SCUBA diving, and I'm an ice hockey goalie. I'm also an avid piano player and music lover. I'm looking to build strong connections, learn as much as I can, and make an impact on my team this summer! 

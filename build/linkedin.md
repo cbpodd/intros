@@ -1,3 +1,0 @@
-# Linkedin
-
-I am a highly motivated and high-performing USC student graduating in May 2021 with both a MS in Computer Science and a BS in Computer Science/Business Administration earned jointly in 4 years with high honors. This summer I'll be a Software Engineering Intern at Microsoft. Previously, I interned at start-ups during the summer of 2019 and 2018. I love mountain biking, SCUBA diving, and I'm an ice hockey goalie. I'm also an avid piano player and music lover. I'm looking to build connections, learn as much as I can, and make a meaningful impact wherever I go. 
